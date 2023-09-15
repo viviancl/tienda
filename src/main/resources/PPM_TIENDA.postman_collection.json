@@ -1,0 +1,275 @@
+{
+	"info": {
+		"_postman_id": "3eec3932-8559-4d6c-91f4-a55405245940",
+		"name": "PPM_TIENDA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3612288"
+	},
+	"item": [
+		{
+			"name": "Tiendas",
+			"item": [
+				{
+					"name": "Crear Tienda",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{        \r\n        \"nombre\": \"La Nueva Oriental\",\r\n        \"direccion\": \"Calle Medio\",\r\n        \"telefono\": \"25682415\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:99/api/tiendas",
+							"host": [
+								"localhost"
+							],
+							"port": "99",
+							"path": [
+								"api",
+								"tiendas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Tienda",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{        \r\n    \"nombre\": \"Universal\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:99/api/tiendas/1",
+							"host": [
+								"localhost"
+							],
+							"port": "99",
+							"path": [
+								"api",
+								"tiendas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agregar Productos a la Tienda",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " [\r\n    {\r\n        \"nombre\": \"Leche\",\r\n        \"precio\": 0.70\r\n    },        \r\n    {   \r\n        \"nombre\": \"Agua Mineral\",\r\n        \"precio\": 1.10\r\n    },\r\n    {   \r\n        \"nombre\": \"Yogurt\",\r\n        \"precio\": 5.0\r\n    }\r\n]\r\n\r\n \r\n\r\n\r\n\r\n    ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:99/api/tiendas/1/productos",
+							"host": [
+								"localhost"
+							],
+							"port": "99",
+							"path": [
+								"api",
+								"tiendas",
+								"1",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Tiendas y Productos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:99/api/tiendas",
+							"host": [
+								"localhost"
+							],
+							"port": "99",
+							"path": [
+								"api",
+								"tiendas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Recuperar Productos de una Tienda",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " \r\n\r\n \r\n\r\n\r\n\r\n    ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:99/api/tiendas/1/productos",
+							"host": [
+								"localhost"
+							],
+							"port": "99",
+							"path": [
+								"api",
+								"tiendas",
+								"1",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Productos",
+			"item": [
+				{
+					"name": "Actualizar Producto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{        \r\n    \"nombre\": \"Zapato deportivo\",\r\n    \"precio\": 25.5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:99/api/productos/2",
+							"host": [
+								"localhost"
+							],
+							"port": "99",
+							"path": [
+								"api",
+								"productos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pedidos",
+			"item": [
+				{
+					"name": "Realizar Pedido",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"idCliente\": 1,\r\n    \"productos\" :\r\n    [       \r\n       { \r\n           \"idProducto\" : 2,\r\n            \"cantidad\" : 20 \r\n        },\r\n        {\r\n            \"idProducto\" : 3,\r\n            \"cantidad\" : 30 \r\n        } \r\n    ]      \r\n   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:99/api/pedidos",
+							"host": [
+								"localhost"
+							],
+							"port": "99",
+							"path": [
+								"api",
+								"pedidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pedidos Por Cliente en Rango de Fechas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fechaInicio\": \"2023-09-13\",\r\n    \"fechaFin\": \"2023-09-15\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:99/api/pedidos?cliente=1&fechaInicio=2023-09-13&fechaFin=2023-09-15",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "99",
+							"path": [
+								"api",
+								"pedidos"
+							],
+							"query": [
+								{
+									"key": "cliente",
+									"value": "1"
+								},
+								{
+									"key": "fechaInicio",
+									"value": "2023-09-13"
+								},
+								{
+									"key": "fechaFin",
+									"value": "2023-09-15"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Pedido",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
